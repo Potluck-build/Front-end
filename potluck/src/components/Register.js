@@ -27,33 +27,22 @@ const Register = (props) => {
       <div className='form-group submit'>
         
         <div className='errors'>
-          <div>{errors.name}</div>
-          <div>{errors.email}</div>
+          <div>{errors.username}</div>
+          
           <div>{errors.password}</div>
           <div>{errors.confirmPassword}</div>
-          <div>{errors.termsOfService}</div>
+          
         </div>
       </div>
 
       <div className='form-group inputs'>
         <h4>Sign-up for the Potluck!</h4>
-        <div><label>Name&nbsp;
+        <div><label>Username&nbsp;
             <div>
           <input
-            value={values.name}
+            value={values.username}
             onChange={onRegisterChange}
-            name='name'
-            type='text'
-          /></div>
-        </label>
-        </div>
-
-        <div><label>Email
-            <div>
-          <input
-            value={values.email}
-            onChange={onRegisterChange}
-            name='email'
+            name='username'
             type='text'
           /></div>
         </label>
@@ -78,23 +67,13 @@ const Register = (props) => {
             value={values.confirmPassword}
             onChange={onRegisterChange}
             name='confirmPassword'
-            type='text'
+            type={'password'}
           /></div>
         </label>
         </div>
       </div>
 
-      <div className='form-group checkboxes'>
-        <label>Terms of Service
-          <input
-            type='checkbox'
-            value={values.termsOfService}
-            onChange={onRegisterChange}
-            name='termsOfService'
-          />
-        </label>
-        
-      </div>
+      
       <button disabled={disabled}>submit</button>
     </form>
   
