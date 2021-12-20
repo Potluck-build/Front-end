@@ -1,5 +1,6 @@
 import React from "react";
 
+<<<<<<< HEAD
 
 
 
@@ -102,6 +103,13 @@ const Register = (props) => {
       <button disabled={disabled}>submit</button>
     </form>
   
+=======
+const Register = () => {
+  return (
+    <div>
+      <h1>Register</h1>
+      </div>
+>>>>>>> 8208b2be453d0a99187cc8e8b3c9091928d8e8f2
   )
 };
   

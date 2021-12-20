@@ -2,6 +2,7 @@ import React from "react";
 
 const Dashboard = () => {
   return (
+
     <div className='potlucks-con'>
       <div className='potluck'>
         <h1>Name:</h1>

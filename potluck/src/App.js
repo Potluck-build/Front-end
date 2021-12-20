@@ -39,6 +39,7 @@ const initialDisabled = true
 
 
 const App = () => {
+<<<<<<< HEAD
   const [users, setUsers] = useState(initialUsers)          
   const [formValues, setFormValues] = useState(initialFormValues) 
   const [formErrors, setFormErrors] = useState(initialFormErrors) 
@@ -131,6 +132,22 @@ const App = () => {
       </RouteContainer>
     </AppContainer>
   );
+=======
+    return (
+        <AppContainer>
+            <Header/>
+            <RouteContainer>
+                <Routes>
+                    <Route path='/' element={<Login/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/register' element={<Register/>}/>
+                    <Route path='/dashboard' element={<Dashboard/>}/>
+                    <Route path='/add-food' element={<AddFood/>}/>
+                </Routes>
+            </RouteContainer>
+        </AppContainer>
+    );
+>>>>>>> 8208b2be453d0a99187cc8e8b3c9091928d8e8f2
 };
 
 export default App;
