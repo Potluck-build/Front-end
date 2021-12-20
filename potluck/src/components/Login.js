@@ -1,32 +1,42 @@
-import React from "react";
-
-
+import React, { useState } from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  
-  const {
-    values,
-    submit,
-    change,
-    errors,
-  } = props
+  const { values, submit, change, errors } = props;
 
-  const onSubmit = evt => {
-    evt.preventDefault()
-    submit()
-  }
-const onChange = evt => {
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
 
-    const { name, value, checked, type } = evt.target
-    const valueToUse = type === 'checkbox' ? checked : value;
-    change(name, valueToUse)
-  }
+  const nav = useNavigate();
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    axiosWithAuth()
+      .post("/api/users/login", login)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        nav("/dashboard");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const onChange = (e) => {
+    // const { name, value, checked, type } = evt.target;
+    // const valueToUse = type === "checkbox" ? checked : value;
+    // change(name, valueToUse);
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value,
+    });
+    console.log(login);
+  };
 
   return (
-    
-  
     <form className='login container' onSubmit={onSubmit}>
-    
       <div className='form-group submit'>
         <h1>Login</h1>
         <div className='errors'>
@@ -37,40 +47,39 @@ const onChange = evt => {
 
       <div className='form-group inputs'>
         <h4>Log-in to view your Potluck dashboard</h4>
-        <div><label>Username&nbsp;
+        <div>
+          <label>
+            Username&nbsp;
             <div>
-          <input
-            value={values.username}
-            onChange={onChange}
-            name='username'
-            type='text'
-          /></div>
-        </label>
+              <input
+                value={login.username}
+                onChange={onChange}
+                name='username'
+                type='text'
+              />
+            </div>
+          </label>
         </div>
 
-
         <div>
-        <label>Password
+          <label>
+            Password
             <div>
-          <input
-            
-            value={values.password}
-            onChange={onChange}
-            name='password'
-            type={'password'}
-          /></div>
-        </label>
+              <input
+                value={login.password}
+                onChange={onChange}
+                name='password'
+                type={"password"}
+              />
+            </div>
+          </label>
         </div>
-        <div>
-        
-        </div>
+        <div></div>
       </div>
 
       <button>submit</button>
     </form>
-  
-    
-  
-  )};
+  );
+};
 
 export default Login;

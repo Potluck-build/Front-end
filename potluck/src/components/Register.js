@@ -1,31 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Register = (props) => {
-  const {
-    values,
-    submit,
-    change,
-    disabled,
-    errors,
-  } = props
+  const { values, submit, change, disabled, errors } = props;
 
-  const onSubmit = evt => {
-    evt.preventDefault()
-    submit()
-  }
+  const [regis, setRegis] = useState({
+    username: "",
+    password: "",
+  });
 
-  const onRegisterChange = evt => {
+  const handleChange = (e) => {
+    setRegis({
+      ...regis,
+      [e.target.name]: e.target.value,
+    });
+    console.log(regis);
+  };
 
-    const { name, value, checked, type } = evt.target
-    const valueToUse = type === 'checkbox' ? checked : value;
-    change(name, valueToUse)
-  }
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    axiosWithAuth()
+      .post("/api/users/register", regis)
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
+  const onRegisterChange = (evt) => {
+    const { name, value, checked, type } = evt.target;
+    const valueToUse = type === "checkbox" ? checked : value;
+    change(name, valueToUse);
+  };
 
   return (
-  
     <form className='register container' onSubmit={onSubmit}>
       <div className='form-group submit'>
-        
         <div className='errors'>
           <div>{errors.name}</div>
           <div>{errors.email}</div>
@@ -37,55 +46,65 @@ const Register = (props) => {
 
       <div className='form-group inputs'>
         <h4>Sign-up for the Potluck!</h4>
-        <div><label>Name&nbsp;
+        <div>
+          <label>
+            Name&nbsp;
             <div>
-          <input
-            value={values.name}
-            onChange={onRegisterChange}
-            name='name'
-            type='text'
-          /></div>
-        </label>
-        </div>
-
-        <div><label>Email
-            <div>
-          <input
-            value={values.email}
-            onChange={onRegisterChange}
-            name='email'
-            type='text'
-          /></div>
-        </label>
+              <input
+                value={regis.username}
+                onChange={handleChange}
+                name='username'
+                type='text'
+              />
+            </div>
+          </label>
         </div>
 
         <div>
-        <label>Password
+          {/* <label>
+            Email
             <div>
-          <input
-            
-            value={values.password}
-            onChange={onRegisterChange}
-            name='password'
-            type={'password'}
-          /></div>
-        </label>
+              <input
+                value={values.email}
+                onChange={onRegisterChange}
+                name='email'
+                type='text'
+              />
+            </div>
+          </label> */}
         </div>
+
         <div>
-        <label>Confirm Password
+          <label>
+            Password
             <div>
-          <input
-            value={values.confirmPassword}
-            onChange={onRegisterChange}
-            name='confirmPassword'
-            type='text'
-          /></div>
-        </label>
+              <input
+                value={regis.password}
+                onChange={handleChange}
+                name='password'
+                type={"password"}
+              />
+            </div>
+          </label>
         </div>
+        {/* <div>
+          <label>
+            Confirm Password
+            <div>
+              <input
+                value={values.confirmPassword}
+                onChange={onRegisterChange}
+                name='confirmPassword'
+                type='text'
+              />
+            </div>
+          </label>
+        </div> */}
       </div>
 
-      <div className='form-group checkboxes'>
-        <label>Terms of Service
+      {/* <div className='form-group checkboxes'>
+        <label>
+          Terms of Service
           <input
             type='checkbox'
             value={values.termsOfService}
@@ -93,14 +112,10 @@ const Register = (props) => {
             name='termsOfService'
           />
         </label>
-        
-      </div>
-      <button disabled={disabled}>submit</button>
+      </div> */}
+      <button>submit</button>
     </form>
-  
-  )
+  );
 };
-  
-
 
 export default Register;

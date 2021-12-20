@@ -30,23 +30,20 @@
 .potlucks-con {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  margin-left: 4%;
 }
 
 .potluck {
   width: 30%;
-  height: 50vh;
+  height: 70vh;
   border: 1px solid black;
   border-radius: 7%;
-  margin-top: 5%;
-}
-.potluck {
-  margin-left: 2.5%;
-  margin-top: 1%;
+  margin-top: 3%;
+  margin-left: 6%;
 }
 
 .label input {
-  margin-top: 50%;
+  margin-top: 80%;
 }
 
 input {
