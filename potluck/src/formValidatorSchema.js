@@ -21,7 +21,11 @@ confirmPassword: yup
     .oneOf([yup.ref('password'), null], 'Passwords must match'),    
 termsOfService: yup.boolean().oneOf([true], 'must accept the terms!'),
 
-
+username: yup
+    .string()
+    .trim()
+    .required('Username is required!')
+    .min(3, 'Username has to be at least three characters'),
 })
 
 export default formValidatorSchema;

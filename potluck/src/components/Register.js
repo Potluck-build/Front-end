@@ -23,7 +23,7 @@ const Register = (props) => {
 
   return (
   
-    <form className='form container' onSubmit={onSubmit}>
+    <form className='register container' onSubmit={onSubmit}>
       <div className='form-group submit'>
         
         <div className='errors'>
