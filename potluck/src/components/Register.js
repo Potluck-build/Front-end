@@ -46,17 +46,6 @@ const Register = (props) => {
 
       <div className='form-group inputs'>
         <h4>Sign-up for the Potluck!</h4>
-<<<<<<< HEAD
-        <div><label>Username&nbsp;
-            <div>
-          <input
-            value={values.username}
-            onChange={onRegisterChange}
-            name='username'
-            type='text'
-          /></div>
-        </label>
-=======
         <div>
           <label>
             Name&nbsp;
@@ -83,7 +72,6 @@ const Register = (props) => {
               />
             </div>
           </label> */}
->>>>>>> 2eda17bd997d8f1d8b30971ff6f1cad4eecbd1a5
         </div>
 
         <div>
@@ -103,20 +91,6 @@ const Register = (props) => {
           <label>
             Confirm Password
             <div>
-<<<<<<< HEAD
-          <input
-            value={values.confirmPassword}
-            onChange={onRegisterChange}
-            name='confirmPassword'
-            type={'password'}
-          /></div>
-        </label>
-        </div>
-      </div>
-
-      
-      <button disabled={disabled}>submit</button>
-=======
               <input
                 value={values.confirmPassword}
                 onChange={onRegisterChange}
@@ -140,7 +114,6 @@ const Register = (props) => {
         </label>
       </div> */}
       <button>submit</button>
->>>>>>> 2eda17bd997d8f1d8b30971ff6f1cad4eecbd1a5
     </form>
   );
 };

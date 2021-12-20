@@ -5,18 +5,10 @@ import { Navigate, useNavigate } from "react-router-dom";
 const Login = (props) => {
   const { values, submit, change, errors } = props;
 
-<<<<<<< HEAD
-  const onSubmit = evt => {
-    evt.preventDefault()
-    submit()
-  }
-const onLoginChange = evt => {
-=======
   const [login, setLogin] = useState({
     username: "",
     password: "",
   });
->>>>>>> 2eda17bd997d8f1d8b30971ff6f1cad4eecbd1a5
 
   const nav = useNavigate();
 
@@ -59,15 +51,6 @@ const onLoginChange = evt => {
           <label>
             Username&nbsp;
             <div>
-<<<<<<< HEAD
-          <input
-            value={values.username}
-            onChange={onLoginChange}
-            name='username'
-            type='text'
-          /></div>
-        </label>
-=======
               <input
                 value={login.username}
                 onChange={onChange}
@@ -76,26 +59,12 @@ const onLoginChange = evt => {
               />
             </div>
           </label>
->>>>>>> 2eda17bd997d8f1d8b30971ff6f1cad4eecbd1a5
         </div>
 
         <div>
           <label>
             Password
             <div>
-<<<<<<< HEAD
-          <input
-            
-            value={values.password}
-            onChange={onLoginChange}
-            name='password'
-            type={'password'}
-          /></div>
-        </label>
-        </div>
-        <div>
-        
-=======
               <input
                 value={login.password}
                 onChange={onChange}
@@ -104,7 +73,6 @@ const onLoginChange = evt => {
               />
             </div>
           </label>
->>>>>>> 2eda17bd997d8f1d8b30971ff6f1cad4eecbd1a5
         </div>
         <div></div>
       </div>
