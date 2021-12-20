@@ -119,8 +119,8 @@ const App = () => {
       <Header />
       <RouteContainer>
         <Routes>
-          <Route path='/' element={<Login values={formValues} submit={formSubmit} errors={formErrors}/>} />
-          <Route path='/login' element={<Login values={formValues} submit={formSubmit} errors={formErrors}/>} />
+          <Route path='/' element={<Login values={formValues} submit={formSubmit} errors={formErrors} change={inputChange} />} />
+          <Route path='/login' element={<Login values={formValues} submit={formSubmit} errors={formErrors} change={inputChange} />} />
           <Route path='/register' element={<Register 
                                                     values={formValues}
                                                     change={inputChange}

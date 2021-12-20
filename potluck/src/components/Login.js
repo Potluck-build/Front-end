@@ -7,6 +7,7 @@ const Login = (props) => {
   const {
     values,
     submit,
+    change,
     errors,
   } = props
 
@@ -14,7 +15,12 @@ const Login = (props) => {
     evt.preventDefault()
     submit()
   }
+const onChange = evt => {
 
+    const { name, value, checked, type } = evt.target
+    const valueToUse = type === 'checkbox' ? checked : value;
+    change(name, valueToUse)
+  }
 
   return (
     
@@ -35,7 +41,7 @@ const Login = (props) => {
             <div>
           <input
             value={values.username}
-            
+            onChange={onChange}
             name='username'
             type='text'
           /></div>
@@ -49,7 +55,7 @@ const Login = (props) => {
           <input
             
             value={values.password}
-            
+            onChange={onChange}
             name='password'
             type={'password'}
           /></div>

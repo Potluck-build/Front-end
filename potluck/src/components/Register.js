@@ -14,7 +14,7 @@ const Register = (props) => {
     submit()
   }
 
-  const onChange = evt => {
+  const onRegisterChange = evt => {
 
     const { name, value, checked, type } = evt.target
     const valueToUse = type === 'checkbox' ? checked : value;
@@ -41,7 +41,7 @@ const Register = (props) => {
             <div>
           <input
             value={values.name}
-            onChange={onChange}
+            onChange={onRegisterChange}
             name='name'
             type='text'
           /></div>
@@ -52,7 +52,7 @@ const Register = (props) => {
             <div>
           <input
             value={values.email}
-            onChange={onChange}
+            onChange={onRegisterChange}
             name='email'
             type='text'
           /></div>
@@ -65,7 +65,7 @@ const Register = (props) => {
           <input
             
             value={values.password}
-            onChange={onChange}
+            onChange={onRegisterChange}
             name='password'
             type={'password'}
           /></div>
@@ -76,7 +76,7 @@ const Register = (props) => {
             <div>
           <input
             value={values.confirmPassword}
-            onChange={onChange}
+            onChange={onRegisterChange}
             name='confirmPassword'
             type='text'
           /></div>
@@ -89,7 +89,7 @@ const Register = (props) => {
           <input
             type='checkbox'
             value={values.termsOfService}
-            onChange={onChange}
+            onChange={onRegisterChange}
             name='termsOfService'
           />
         </label>
