@@ -1,1 +1,22 @@
 /*  Dashboard */
+.potlucks-con {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.potluck {
+  width: 30%;
+  height: 50vh;
+  border: 1px solid black;
+  border-radius: 7%;
+  margin-top: 5%;
+}
+.potluck h1 {
+  margin-left: 2.5%;
+  margin-top: 60%;
+}
+
+.potluck p {
+  margin-left: 2.5%;
+}
