@@ -1,8 +1,36 @@
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  margin-right: 12%;
+  margin-top: 4%;
+}
+
+.login-link {
+  margin-right: 10%;
+}
+
+.register-link {
+  margin-right: 10%;
+}
+
+.dashboard-link {
+  margin-right: 10%;
+}
+
+.add-link {
+  margin-right: 10%;
+}
+
 /*  Dashboard */
 .potlucks-con {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .potluck {
@@ -12,11 +40,25 @@
   border-radius: 7%;
   margin-top: 5%;
 }
-.potluck h1 {
+.potluck {
   margin-left: 2.5%;
-  margin-top: 60%;
+  margin-top: 1%;
 }
 
-.potluck p {
-  margin-left: 2.5%;
+.label input {
+  margin-top: 50%;
+}
+
+input {
+  width: 80%;
+  height: 4vh;
+  margin-left: 10%;
+}
+
+.name {
+  margin-bottom: 5%;
+}
+
+.date {
+  margin-bottom: 5%;
 }

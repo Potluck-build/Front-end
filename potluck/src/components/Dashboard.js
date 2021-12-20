@@ -5,44 +5,87 @@ const Dashboard = () => {
 
     <div className='potlucks-con'>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        {" "}
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        {" "}
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        {" "}
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        {" "}
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
       <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
-      </div>
-      <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
-      </div>
-      <div className='potluck'>
-        <h1>Name:</h1>
-        <p>Date:</p>
-        <p>Loaction:</p>
+        {" "}
+        <label className='label'>
+          <input className='name' placeholder='Name' />
+        </label>
+        <br />
+        <label>
+          <input className='date' type='date' />
+        </label>
+        <br />
+        <label>
+          <input placeholder='Location' />
+        </label>
       </div>
     </div>
   );
