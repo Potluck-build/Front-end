@@ -8,20 +8,20 @@ import AddFood from "./components/AddFood";
 import styled from "styled-components";
 
 const App = () => {
-  return (
-    <AppContainer>
-      <Header />
-      <RouteContainer>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/invite' element={<AddFood />} />
-        </Routes>
-      </RouteContainer>
-    </AppContainer>
-  );
+    return (
+        <AppContainer>
+            <Header/>
+            <RouteContainer>
+                <Routes>
+                    <Route path='/' element={<Login/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/register' element={<Register/>}/>
+                    <Route path='/dashboard' element={<Dashboard/>}/>
+                    <Route path='/add-food' element={<AddFood/>}/>
+                </Routes>
+            </RouteContainer>
+        </AppContainer>
+    );
 };
 
 export default App;
