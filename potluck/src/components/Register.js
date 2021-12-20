@@ -48,7 +48,7 @@ const Register = (props) => {
         <h4>Sign-up for the Potluck!</h4>
         <div>
           <label>
-            Name&nbsp;
+            Username&nbsp;
             <div>
               <input
                 value={regis.username}
