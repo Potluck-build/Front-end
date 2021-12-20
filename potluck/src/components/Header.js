@@ -4,13 +4,21 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <HeadContainer>
+    <HeadContainer className='header'>
       <h1>Potluck Planner</h1>
-      <LinkContainer>
-        <Link to='/'>Login</Link>
-        <Link to='/register'>Sign Up</Link>
-        <Link to='/dashboard'>Dashboard</Link>
-        <Link to='/add-food'>Add Food</Link>
+      <LinkContainer className='links'>
+        <Link className='login-link' to='/'>
+          Login
+        </Link>
+        <Link className='register-link' to='/register'>
+          Register
+        </Link>
+        <Link className='dashboard-link' to='/dashboard'>
+          Dashboard
+        </Link>
+        <Link className='invite-link' to='/invite'>
+          Invite
+        </Link>
       </LinkContainer>
     </HeadContainer>
   );
