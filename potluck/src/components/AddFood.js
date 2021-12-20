@@ -3,7 +3,7 @@ import React from "react";
 const AddFood = () => {
   return (
   <div>
-    <h1>AddFood Component</h1>
+    <h1>AddFood</h1>
     </div>
   )
 };
