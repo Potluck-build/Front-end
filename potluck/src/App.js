@@ -18,6 +18,7 @@ import * as yup from 'yup';
 //////////////// INITIAL STATES ////////////////
 const initialFormValues = {
   ///// TEXT INPUTS /////
+  username: '',
   name: '',
   email: '',
   password: '',
@@ -28,6 +29,7 @@ const initialFormValues = {
   
 }
 const initialFormErrors = {
+  username: '',
   name: '',
   email: '',
   password: '',
@@ -117,14 +119,14 @@ const App = () => {
       <Header />
       <RouteContainer>
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login values={formValues} submit={formSubmit} errors={formErrors} change={inputChange} />} />
+          <Route path='/login' element={<Login values={formValues} submit={formSubmit} errors={formErrors} change={inputChange} />} />
           <Route path='/register' element={<Register 
-                        values={formValues}
-                        change={inputChange}
-                        submit={formSubmit}
-                        disabled={disabled}
-                        errors={formErrors}/>} />
+                                                    values={formValues}
+                                                    change={inputChange}
+                                                    submit={formSubmit}
+                                                    disabled={disabled}
+                                                    errors={formErrors}/>} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/add-food' element={<AddFood />} />
         </Routes>
