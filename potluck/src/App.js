@@ -1,17 +1,15 @@
 import "./App.css";
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
 import AddFood from "./components/AddFood";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const App = () => {
     return (
-        
         <AppContainer>
-            <h1>des</h1>
             <Header/>
             <RouteContainer>
                 <Routes>
@@ -29,8 +27,8 @@ const App = () => {
 export default App;
 
 const AppContainer = styled.div`
-  height: 100%
-`
+  height: 100%;
+`;
 const RouteContainer = styled.div`
-  height: 100%
-`
+  height: 100%;
+`;
