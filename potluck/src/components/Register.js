@@ -36,11 +36,11 @@ const Register = (props) => {
     <form className='register container' onSubmit={onSubmit}>
       <div className='form-group submit'>
         <div className='errors'>
-          <div>{errors.name}</div>
-          <div>{errors.email}</div>
+          <div>{errors.username}</div>
+          
           <div>{errors.password}</div>
           <div>{errors.confirmPassword}</div>
-          <div>{errors.termsOfService}</div>
+          
         </div>
       </div>
 

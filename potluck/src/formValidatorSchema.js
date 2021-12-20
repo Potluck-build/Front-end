@@ -1,15 +1,11 @@
 import * as yup from 'yup';
 
 const formValidatorSchema = yup.object().shape({
-name: yup
+username: yup
     .string()
     .trim()
-    .required('Name is required!')
-    .min(3, 'Name has to be at least three characters'),
-email: yup
-    .string()
-    .email('gotta be a valid email address')
-    .required('YOU FORGOT TO ENTER EMAIL ADDRESS'),
+    .required('Username is required!')
+    .min(3, 'Username has to be at least three characters'),
 password: yup
     .string()
     .required("Please Enter your password")
@@ -19,13 +15,7 @@ password: yup
 confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Passwords must match'),    
-termsOfService: yup.boolean().oneOf([true], 'must accept the terms!'),
 
-username: yup
-    .string()
-    .trim()
-    .required('Username is required!')
-    .min(3, 'Username has to be at least three characters'),
 })
 
 export default formValidatorSchema;
