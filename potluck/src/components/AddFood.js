@@ -1,7 +1,11 @@
 import React from "react";
 
 const AddFood = () => {
-  return <div></div>;
+  return (
+  <div>
+    <h1>AddFood Component</h1>
+    </div>
+  )
 };
 
 export default AddFood;
