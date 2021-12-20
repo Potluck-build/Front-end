@@ -8,15 +8,15 @@ import AddFood from "./components/AddFood";
 
 const App = () => {
   return (
-    <div className='App'>
-      Potluck Planner
+    <div>
       <Header />
+      <h1>Potluck Planner</h1>
       <Routes>
-        <Route path='/' component={Login} />
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/add-food' component={AddFood} />
+        <Route path='/' element={<Login />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/dash' element={<Dashboard />} />
+        <Route path='/add-food' element={<AddFood />} />
       </Routes>
     </div>
   );
