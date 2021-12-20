@@ -17,6 +17,7 @@ import * as yup from "yup";
 //////////////// INITIAL STATES ////////////////
 const initialFormValues = {
   ///// TEXT INPUTS /////
+  username: "",
   name: "",
   email: "",
   password: "",
@@ -26,6 +27,7 @@ const initialFormValues = {
   termsOfService: false,
 };
 const initialFormErrors = {
+  username: "",
   name: "",
   email: "",
   password: "",
@@ -33,7 +35,7 @@ const initialFormErrors = {
   termsOfService: "",
 };
 const initialUsers = [];
-const initialDisabled = true;
+const initialDisabled = false;
 
 const App = () => {
   const [users, setUsers] = useState(initialUsers);
@@ -114,8 +116,28 @@ const App = () => {
       <Header />
       <RouteContainer>
         <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/login' element={<Login />} />
+          <Route
+            path='/'
+            element={
+              <Login
+                values={formValues}
+                submit={formSubmit}
+                errors={formErrors}
+                change={inputChange}
+              />
+            }
+          />
+          <Route
+            path='/login'
+            element={
+              <Login
+                values={formValues}
+                submit={formSubmit}
+                errors={formErrors}
+                change={inputChange}
+              />
+            }
+          />
           <Route
             path='/register'
             element={
