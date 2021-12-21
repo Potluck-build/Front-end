@@ -43,6 +43,8 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
+
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
@@ -113,7 +115,7 @@ const App = () => {
 
   return (
     <AppContainer>
-      <Header />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
         <Routes>
           <Route
@@ -124,6 +126,7 @@ const App = () => {
                 submit={formSubmit}
                 errors={formErrors}
                 change={inputChange}
+                setLoggedIn={setLoggedIn}
               />
             }
           />
@@ -135,6 +138,8 @@ const App = () => {
                 submit={formSubmit}
                 errors={formErrors}
                 change={inputChange}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
               />
             }
           />

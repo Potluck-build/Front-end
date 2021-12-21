@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -17,6 +17,7 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/api/users/login", login)
       .then((res) => {
+        props.setLoggedIn(localStorage.getItem("token"));
         localStorage.setItem("token", res.data.token);
         nav("/dashboard");
       })
@@ -32,7 +33,6 @@ const Login = (props) => {
       ...login,
       [e.target.name]: e.target.value,
     });
-    console.log(login);
   };
 
   return (
