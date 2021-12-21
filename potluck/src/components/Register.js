@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Register = (props) => {
-  const { values, submit, change, disabled, errors } = props;
+  const { errors } = props;
 
   const [regis, setRegis] = useState({
     username: "",
@@ -26,18 +26,11 @@ const Register = (props) => {
       });
   };
 
-  const onRegisterChange = (evt) => {
-    const { name, value, checked, type } = evt.target;
-    const valueToUse = type === "checkbox" ? checked : value;
-    change(name, valueToUse);
-  };
-
   return (
-    <form className='register container' onSubmit={onSubmit}>
+    <form className='register-container' onSubmit={onSubmit}>
       <div className='form-group submit'>
         <div className='errors'>
           <div>{errors.username}</div>
-          
           <div>{errors.password}</div>
           <div>{errors.confirmPassword}</div>
           
@@ -59,21 +52,6 @@ const Register = (props) => {
             </div>
           </label>
         </div>
-
-        <div>
-          {/* <label>
-            Email
-            <div>
-              <input
-                value={values.email}
-                onChange={onRegisterChange}
-                name='email'
-                type='text'
-              />
-            </div>
-          </label> */}
-        </div>
-
         <div>
           <label>
             Password
@@ -87,32 +65,7 @@ const Register = (props) => {
             </div>
           </label>
         </div>
-        {/* <div>
-          <label>
-            Confirm Password
-            <div>
-              <input
-                value={values.confirmPassword}
-                onChange={onRegisterChange}
-                name='confirmPassword'
-                type='text'
-              />
-            </div>
-          </label>
-        </div> */}
       </div>
-
-      {/* <div className='form-group checkboxes'>
-        <label>
-          Terms of Service
-          <input
-            type='checkbox'
-            value={values.termsOfService}
-            onChange={onRegisterChange}
-            name='termsOfService'
-          />
-        </label>
-      </div> */}
       <button>submit</button>
     </form>
   );
