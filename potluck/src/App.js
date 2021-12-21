@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
+import Logout from "./components/Logout";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
@@ -42,6 +43,8 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"));
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
@@ -135,6 +138,8 @@ const App = () => {
                 submit={formSubmit}
                 errors={formErrors}
                 change={inputChange}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
               />
             }
           />
@@ -150,6 +155,7 @@ const App = () => {
               />
             }
           />
+          <Route path='/logout' element={<Logout />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/add-food' element={<AddFood />} />
         </Routes>
