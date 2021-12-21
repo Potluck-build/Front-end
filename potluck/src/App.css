@@ -11,15 +11,15 @@
 }
 
 .login-link {
-  margin-right: 10%;
+  margin-right: 20%;
 }
 
 .logout-link {
-  margin-left: 10%;
+  margin-left: 12%;
 }
 
 .register-link {
-  margin-right: 10%;
+  margin-right: 15%;
 }
 
 .dashboard-link {
@@ -62,4 +62,11 @@ input {
 
 .date {
   margin-bottom: 5%;
+}
+
+.add {
+  width: 20%;
+  height: 3vh;
+  margin-left: 72%;
+  margin-top: 7%;
 }

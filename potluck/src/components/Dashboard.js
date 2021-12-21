@@ -13,7 +13,6 @@ const Dashboard = () => {
       ...addEvent,
       [e.target.name]: e.target.value,
     });
-    console.log(addEvent);
   };
 
   return (
@@ -49,6 +48,7 @@ const Dashboard = () => {
             value={addEvent.location}
           />
         </label>
+        <button className='add'>Add</button>
       </div>
     </div>
   );

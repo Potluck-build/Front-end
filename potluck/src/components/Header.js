@@ -3,10 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = (props) => {
-  const { isLoggedIn } = props;
+  const { loggedIn, setLoggedIn } = props;
   const nav = useNavigate();
 
   const handleLogout = () => {
+    setLoggedIn(localStorage.getItem("token"));
     localStorage.removeItem("token");
     nav("/");
   };
@@ -15,27 +16,27 @@ const Header = (props) => {
     <HeadContainer className='header'>
       <h1>Potluck Planner</h1>
       <LinkContainer className='links'>
-        {!isLoggedIn && (
+        {!loggedIn && (
           <Link className='login-link' to='/'>
             Login
           </Link>
         )}
-        {!isLoggedIn && (
+        {!loggedIn && (
           <Link className='register-link' to='/register'>
             Register
           </Link>
         )}
-        {isLoggedIn && (
+        {loggedIn && (
           <Link className='dashboard-link' to='/dashboard'>
             Dashboard
           </Link>
         )}
-        {isLoggedIn && (
+        {loggedIn && (
           <Link className='invite-link' to='/invite'>
             Invite
           </Link>
         )}
-        {!isLoggedIn && (
+        {loggedIn && (
           <Link onClick={handleLogout} className='logout-link' to='/'>
             Logout
           </Link>

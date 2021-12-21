@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import Logout from "./components/Logout";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Header from "./components/Header";
@@ -44,7 +43,7 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"));
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
@@ -116,7 +115,7 @@ const App = () => {
 
   return (
     <AppContainer>
-      <Header />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
         <Routes>
           <Route
@@ -127,6 +126,7 @@ const App = () => {
                 submit={formSubmit}
                 errors={formErrors}
                 change={inputChange}
+                setLoggedIn={setLoggedIn}
               />
             }
           />
@@ -138,8 +138,8 @@ const App = () => {
                 submit={formSubmit}
                 errors={formErrors}
                 change={inputChange}
-                isLoggedIn={isLoggedIn}
-                setIsLoggedIn={setIsLoggedIn}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
               />
             }
           />
@@ -155,7 +155,6 @@ const App = () => {
               />
             }
           />
-          <Route path='/logout' element={<Logout />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/add-food' element={<AddFood />} />
         </Routes>
