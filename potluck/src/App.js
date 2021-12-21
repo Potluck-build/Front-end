@@ -19,21 +19,14 @@ import Edit from "./components/Edit";
 const initialFormValues = {
   ///// TEXT INPUTS /////
   username: "",
-  name: "",
-  email: "",
   password: "",
-  confirmPassword: "",
 
   ///// CHECKBOX /////
   termsOfService: false,
 };
 const initialFormErrors = {
   username: "",
-  name: "",
-  email: "",
   password: "",
-  confirmPassword: "",
-  termsOfService: "",
 };
 const initialUsers = [];
 const initialDisabled = false;
@@ -45,6 +38,7 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled);
 
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
+  const [events, setEvents] = useState([]);
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
@@ -91,13 +85,7 @@ const App = () => {
   const formSubmit = () => {
     const newUser = {
       name: formValues.name.trim(),
-      email: formValues.email.trim(),
       password: formValues.password.trim(),
-      confirmPassword: formValues.confirmPassword.trim(),
-
-      termsOfService: ["termsOfService"].filter(
-        (checkedterm) => !!formValues[checkedterm]
-      ),
     };
 
     postNewUser(newUser);
@@ -156,8 +144,14 @@ const App = () => {
               />
             }
           />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard events={events} setEvents={setEvents} />}
+          />
+          <Route
+            path="/edit/:id"
+            element={<Edit events={events} setEvents={setEvents} />}
+          />
           <Route path="/add-food" element={<AddFood />} />
         </Routes>
       </RouteContainer>

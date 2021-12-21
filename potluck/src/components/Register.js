@@ -33,45 +33,32 @@ const Register = (props) => {
   };
 
   return (
-    <form className='register container' onSubmit={onSubmit}>
-      <div className='form-group submit'>
-        <div className='errors'>
-          <div>{errors.username}</div>
-          
-          <div>{errors.password}</div>
-          <div>{errors.confirmPassword}</div>
-          
-        </div>
-      </div>
+    <div>
+      <form className="register container" onSubmit={onSubmit}>
+        <div className="form-group submit">
+          <div className="errors">
+            <div>{errors.username}</div>
 
-      <div className='form-group inputs'>
-        <h4>Sign-up for the Potluck!</h4>
-        <div>
-          <label>
-            Username&nbsp;
-            <div>
-              <input
-                value={regis.username}
-                onChange={handleChange}
-                name='username'
-                type='text'
-              />
-            </div>
-          </label>
+            <div>{errors.password}</div>
+            <div>{errors.confirmPassword}</div>
+          </div>
         </div>
 
-        <div>
-          {/* <label>
-            Email
-            <div>
-              <input
-                value={values.email}
-                onChange={onRegisterChange}
-                name='email'
-                type='text'
-              />
-            </div>
-          </label> */}
+        <div className="form-group inputs">
+          <h4>Sign-up for the Potluck!</h4>
+          <div>
+            <label>
+              Username&nbsp;
+              <div>
+                <input
+                  value={regis.username}
+                  onChange={handleChange}
+                  name="username"
+                  type="text"
+                />
+              </div>
+            </label>
+          </div>
         </div>
 
         <div>
@@ -81,40 +68,15 @@ const Register = (props) => {
               <input
                 value={regis.password}
                 onChange={handleChange}
-                name='password'
+                name="password"
                 type={"password"}
               />
             </div>
           </label>
         </div>
-        {/* <div>
-          <label>
-            Confirm Password
-            <div>
-              <input
-                value={values.confirmPassword}
-                onChange={onRegisterChange}
-                name='confirmPassword'
-                type='text'
-              />
-            </div>
-          </label>
-        </div> */}
-      </div>
-
-      {/* <div className='form-group checkboxes'>
-        <label>
-          Terms of Service
-          <input
-            type='checkbox'
-            value={values.termsOfService}
-            onChange={onRegisterChange}
-            name='termsOfService'
-          />
-        </label>
-      </div> */}
-      <button>submit</button>
-    </form>
+        <button>submit</button>
+      </form>
+    </div>
   );
 };
 

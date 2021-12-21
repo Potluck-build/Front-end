@@ -79,18 +79,6 @@ input {
   margin-top: 7%;
 }
 
-.added-con {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
-.potluck-added {
-  border: 1px solid black;
-  max-width: 100%;
-  height: 20vh;
-}
-
 .info {
   text-align: center;
 }
@@ -103,7 +91,7 @@ input {
 .edit {
   width: 20%;
   height: 4.2vh;
-  margin-top: 23%;
+  margin-top: 15%;
   margin-right: 30%;
   background-color: #fff;
 }
