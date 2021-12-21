@@ -11,6 +11,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import schema from "./formValidatorSchema.js";
 import * as yup from "yup";
+import Edit from "./components/Edit";
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -119,7 +120,7 @@ const App = () => {
       <RouteContainer>
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <Login
                 values={formValues}
@@ -131,7 +132,7 @@ const App = () => {
             }
           />
           <Route
-            path='/login'
+            path="/login"
             element={
               <Login
                 values={formValues}
@@ -144,7 +145,7 @@ const App = () => {
             }
           />
           <Route
-            path='/register'
+            path="/register"
             element={
               <Register
                 values={formValues}
@@ -155,8 +156,9 @@ const App = () => {
               />
             }
           />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/add-food' element={<AddFood />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/edit" element={<Edit />} />
+          <Route path="/add-food" element={<AddFood />} />
         </Routes>
       </RouteContainer>
     </AppContainer>
