@@ -3,9 +3,10 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Dashboard = () => {
   const [addEvent, setAddEvent] = useState({
-    name: "",
-    date: "",
-    location: "",
+    user_id: 2,
+    event_name: "",
+    event_date: "2000-01-01T00:00:00",
+    event_location: "",
   });
 
   const handleChange = (e) => {
@@ -13,6 +14,19 @@ const Dashboard = () => {
       ...addEvent,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/api/events/", addEvent)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(addEvent);
   };
 
   return (
@@ -23,8 +37,8 @@ const Dashboard = () => {
             onChange={handleChange}
             className='name'
             placeholder='Name'
-            name='name'
-            value={addEvent.name}
+            name='event_name'
+            value={addEvent.event_name}
           />
         </label>
         <br />
@@ -33,9 +47,9 @@ const Dashboard = () => {
             onChange={handleChange}
             placeholder='mm/dd/yy'
             className='date'
-            type='text'
-            name='date'
-            value={addEvent.date}
+            type='datetime-local'
+            name='event_date'
+            value={addEvent.event_date}
           />
         </label>
         <label>
@@ -44,11 +58,13 @@ const Dashboard = () => {
             className='location'
             placeholder='Location'
             type='text'
-            name='location'
-            value={addEvent.location}
+            name='event_location'
+            value={addEvent.event_location}
           />
         </label>
-        <button className='add'>Add</button>
+        <button onClick={handleAdd} className='add'>
+          Add
+        </button>
       </div>
     </div>
   );
