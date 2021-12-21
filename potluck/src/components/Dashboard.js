@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import food from "../assets/food1.jpeg";
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 const Dashboard = () => {
+  const [events, setEvents] = useState([]);
+
   const [addEvent, setAddEvent] = useState({
     user_id: 2,
     event_name: "",
     event_date: "2000-01-01T00:00:00",
     event_location: "",
   });
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get("/api/events/")
+      .then((res) => {
+        setEvents(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleChange = (e) => {
     setAddEvent({
@@ -32,6 +47,7 @@ const Dashboard = () => {
   return (
     <div className='potlucks-con'>
       <div className='potluck'>
+        <img className='food1' src={food} alt='food' />
         <label className='label'>
           <input
             onChange={handleChange}
@@ -66,6 +82,18 @@ const Dashboard = () => {
           Add
         </button>
       </div>
+      {events.map((event) => (
+        <div className='potluck'>
+          <div className='info'>
+            <img className='food1' src={food} alt='food' />
+            <h1>{event.event_name}</h1>
+            <p>{event.event_date}</p>
+            <p>{event.event_location}</p>
+            <button className='edit'>Edit</button>
+            <button className='delete'>Delete</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
