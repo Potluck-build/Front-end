@@ -17,6 +17,7 @@ const initialFormValues = {
   ///// TEXT INPUTS /////
   username: "",
   password: "",
+
 };
 const initialFormErrors = {
   username: "",
@@ -31,6 +32,71 @@ const App = () => {
   const [disabled ] = useState(initialDisabled);
 
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
+  const [events, setEvents] = useState([]);
+  const [newEvents, setNewEvents] = useState([]);
+
+
+  //////////////// HELPERS ////////////////
+  //////////////// HELPERS ////////////////
+  //////////////// HELPERS ////////////////
+  const getUsers = () => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((resp) => {
+        setUsers(resp.data.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const postNewUser = (newUser) => {
+    axios
+      .post("https://reqres.in/api/users", newUser)
+      .then((resp) => {
+        console.log(resp);
+        setUsers([resp.data, ...users]);
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setFormValues(initialFormValues));
+  };
+
+  const validate = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+      .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  };
+
+  //////////////// EVENT HANDLERS ////////////////
+  //////////////// EVENT HANDLERS ////////////////
+  //////////////// EVENT HANDLERS ////////////////
+  const inputChange = (name, value) => {
+    validate(name, value);
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
+  const formSubmit = () => {
+    const newUser = {
+      name: formValues.name.trim(),
+      password: formValues.password.trim(),
+    };
+
+    postNewUser(newUser);
+  };
+
+  //////////////// SIDE EFFECTS ////////////////
+  //////////////// SIDE EFFECTS ////////////////
+  //////////////// SIDE EFFECTS ////////////////
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  useEffect(() => {
+    schema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
 
 
   return (
@@ -69,8 +135,34 @@ const App = () => {
               />
             }
           />
+
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard
+                newEvents={newEvents}
+                setNewEvents={setNewEvents}
+                events={events}
+                setEvents={setEvents}
+              />
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <Edit
+                newEvents={newEvents}
+                setNewEvents={setNewEvents}
+                events={events}
+                setEvents={setEvents}
+              />
+            }
+          />
+          <Route path="/add-food" element={<AddFood />} />
+
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/add-food' element={<AddFood />} />
+
         </Routes>
       </RouteContainer>
     </AppContainer>
