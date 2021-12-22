@@ -33,13 +33,8 @@ const Login = (props) => {
   };
 
   return (
-
     <form className="login-container" onSubmit={onSubmit}>
       <div className="form-group-submit">
-
-    <form className='login-container' onSubmit={onSubmit}>
-      <div className='form-group submit'>
-
         <h1>Login</h1>
         <div className="errors">
           <div>{errors.username}</div>

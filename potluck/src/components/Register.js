@@ -27,68 +27,57 @@ const Register = (props) => {
   };
 
   return (
+    <>
+      <div>
+        <form className="register-container" onSubmit={onSubmit}>
+          <div className="form-group submit">
+            <div className="errors">
+              <div>{errors.username}</div>
 
-    <div>
-      <form className="register-container" onSubmit={onSubmit}>
-        <div className="form-group submit">
-          <div className="errors">
-            <div>{errors.username}</div>
+              <div>{errors.password}</div>
+              <div>{errors.confirmPassword}</div>
+            </div>
+            <div className="form-group submit">
+              <div className="errors">
+                <div>{errors.username}</div>
+                <div>{errors.password}</div>
+                <div>{errors.confirmPassword}</div>
+              </div>
 
-            <div>{errors.password}</div>
-            <div>{errors.confirmPassword}</div>
+              <div className="form-group inputs">
+                <h4 className="regis-main">Register</h4>
+                <div className="signup-container">
+                  <label className="label-regis-username">
+                    Username&nbsp;
+                    <input
+                      className="regis-username"
+                      value={regis.username}
+                      onChange={handleChange}
+                      name="username"
+                      type="text"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
-
-    <form className='register-container' onSubmit={onSubmit}>
-      <div className='form-group submit'>
-        <div className='errors'>
-          <div>{errors.username}</div>
-          <div>{errors.password}</div>
-          <div>{errors.confirmPassword}</div>
-        </div>
-
-        <div className="form-group inputs">
-          <h4 className="regis-main">Register</h4>
-          <div className="signup-container">
-            <label className="label-regis-username">
-              Username&nbsp;
+          <div>
+            <label className="label-regis-pass">
+              Password
               <input
-                className="regis-username"
-                value={regis.username}
+                className="regis-password"
+                value={regis.password}
                 onChange={handleChange}
-
-                name="username"
-                type="text"
+                name="password"
+                type={"password"}
               />
             </label>
           </div>
-        </div>
 
-
-                name='username'
-                type='text'
-              />
-            </div>
-          </label>
-        </div>
-        <div>
-          <label className="label-regis-pass">
-            Password
-            <input
-              className="regis-password"
-              value={regis.password}
-              onChange={handleChange}
-              name="password"
-              type={"password"}
-            />
-          </label>
-        </div>
-
-        <button className="signup-btn">submit</button>
-      </form>
-    </div>
+          <button className="signup-btn">submit</button>
+        </form>
       </div>
-      <button>submit</button>
-    </form>
+    </>
   );
 };
 
