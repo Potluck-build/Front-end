@@ -27,8 +27,8 @@ const Events = (props) => {
       <div className="info">
         <img className="food1" src={food} alt="food" />
         <h1 className="event-name">Event Name</h1>
-        <br /> <h2>{event.event_name}</h2>
-        <p>{event.event_location}</p>
+        <br /> <h2 className="event-name">{event.event_name}</h2>
+        <p className="event-location">{event.event_location}</p>
         <p>{event.event_date}</p>
         <button onClick={handleEdit} className="edit">
           Edit

@@ -6,6 +6,7 @@ import food from "../assets/food1.jpeg";
 const Edit = (props) => {
   const { id } = useParams();
   const nav = useNavigate();
+
   const [edit, setEdit] = useState({
     user_id: props.events.length + 1,
     event_name: "",
@@ -32,16 +33,9 @@ const Edit = (props) => {
     nav("/dashboard");
   };
 
-  const confirmEdit = (e) => {
-    e.preventDefault();
-    axiosWithAuth()
-      .put(`/api/events/${id}`, edit)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const confirmEdit = () => {
+    // nav("/dashboard");
+    //PUT REQUEST HERE--- NEEDS WORK
   };
 
   return (

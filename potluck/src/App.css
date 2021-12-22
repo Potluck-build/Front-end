@@ -2,8 +2,9 @@
 
 .title {
   margin-left: 2%;
-  margin-top: 3%;
   color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 4rem;
 }
 
 .header {
@@ -72,6 +73,7 @@
   border-radius: 7%;
   margin-top: 3%;
   margin-left: 1%;
+  background-color: #f3d5b5;
 }
 
 .label input {
