@@ -45,7 +45,7 @@ const Register = (props) => {
         </div>
 
         <div className="form-group inputs">
-          <h4 className="regis-main">Sign-up for the Potluck!</h4>
+          <h4 className="regis-main">Register</h4>
           <div className="signup-container">
             <label className="label-regis-username">
               Username&nbsp;
