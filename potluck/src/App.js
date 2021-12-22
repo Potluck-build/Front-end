@@ -6,9 +6,9 @@ import Register from "./components/Register";
 import Header from "./components/Header";
 import AddFood from "./components/AddFood";
 import styled from "styled-components";
-import axios from "axios";
-import React, { useState } from "react";
 import Edit from "./components/Edit";
+
+import React, { useState } from "react";
 
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
@@ -24,6 +24,9 @@ const initialFormErrors = {
 };
 
 const App = () => {
+  const [formValues] = useState(initialFormValues);
+  const [formErrors] = useState(initialFormErrors);
+
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
   const [events, setEvents] = useState([]);
   const [newEvents, setNewEvents] = useState([]);
@@ -33,10 +36,30 @@ const App = () => {
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
         <Routes>
-          <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
+          <Route
+            path="/"
+            element={
+              <Login
+                values={formValues}
+                errors={formErrors}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
           <Route
             path="/login"
-            element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+            element={
+              <Login
+                values={formValues}
+                errors={formErrors}
+                loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={<Register values={formValues} errors={formErrors} />}
           />
           <Route path="/register" element={<Register />} />
 

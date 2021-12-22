@@ -8,7 +8,7 @@
 }
 
 .header {
-  border-bottom: 1px solid black;
+  
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -17,14 +17,17 @@
 }
 
 .links {
-  margin-right: 12%;
-  margin-top: 6%;
+  margin-right: 9%;
+  margin-top: 4%;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
 }
 
 .login-link {
   margin-right: 20%;
   text-decoration: none;
   color: #fff;
+  
 }
 
 .logout-link {
@@ -58,7 +61,7 @@
   width: 99.6%;
   border-top-left-radius: 9%;
   border-top-right-radius: 9%;
-  border: 1px solid black;
+  
 }
 
 .potlucks-con {
@@ -69,7 +72,7 @@
 .potluck {
   width: 30%;
   height: 70vh;
-  border: 1px solid black;
+  
   border-radius: 7%;
   margin-top: 3%;
   margin-left: 1%;
@@ -84,6 +87,7 @@ input {
   width: 80%;
   height: 4vh;
   margin-left: 10%;
+  border: 0px solid black;
 }
 
 .name {
@@ -99,31 +103,66 @@ input {
   height: 4vh;
   margin-left: 67%;
   margin-top: 7%;
+  border: 0px solid black;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #fff;
 }
 
 .info {
   text-align: center;
 }
 
-.event_name {
-  font-size: 1rem;
-  text-align: center;
-}
-
 .edit {
   width: 20%;
   height: 4.2vh;
-  margin-top: 15%;
+  margin-top: 3.5%;
   margin-right: 30%;
+
+  border: 0px solid black;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #fff;
 }
 
 .delete {
   width: 20%;
   height: 4.2vh;
+
+  border: 0px solid black;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #fff;
 }
 
 .event-name {
-  text-decoration: underline;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #a47148;
+}
+
+.event-location {
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  background-color: #f3d5b5;
+  color: #fff;
+}
+.event-name-title{
+  margin-top: .05rem;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #fff;
+}
+.event-time {
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  background-color: #f3d5b5;
+  color: #fff;
 }
 
 /*---------- POTLUCK EDIT -----------*/
@@ -157,36 +196,79 @@ input {
   margin-top: 3%;
   margin-left: 30%;
   width: 25%;
-  height: 40vh;
-  border: 1px solid black;
+  height: 41vh;
+  
   border-radius: 10%;
-  padding: 5%;
+  padding: 6%;
   background-color: #e7bc91;
+  box-shadow: 7px 7px 7px 7px rgba(0, 0, 0, 0.2);
+}
+.login-main {
+  margin-left: 15%;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 3.5rem;
+  margin-top: .1rem;
+}
+
+.login-instructions {
+  margin-left: 15%;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.4rem;
 }
 
 .label-username {
-  margin-left: 7%;
-  margin: 6%;
+  margin-left: 15%;
+  margin: 15%;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  
 }
 
 .label-password {
-  margin-left: 9%;
-  margin: 6%;
+  margin-left: 15%;
+  margin: 15%;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  
 }
 
 .input-login {
+  margin-left: 15%;
   width: 70%;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: rgba(46, 46, 46, 0.945);
+  border: 0px solid #fff;
 }
 
 .input-password {
+  margin-left: 15%;
+ 
   width: 70%;
   margin-bottom: 5%;
+  border: 0px solid #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: rgba(46, 46, 46, 0.945);
+  border: 0px solid #fff;
+  
+  
 }
 
 .login-btn {
   margin-left: 56.3%;
   width: 20%;
   height: 4vh;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #f3d5b5;
+  border: 2px solid;
+  margin-left: 11rem;
 }
 
 /*------------- Register ------------*/
@@ -196,14 +278,22 @@ input {
   margin-left: 30%;
   width: 25%;
   height: 40vh;
-  border: 1px solid black;
+  border: 0px solid black;
   border-radius: 10%;
   padding: 5%;
   background-color: #e7bc91;
+  
+  box-shadow: 7px 7px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
 .regis-main {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-left: 10%;
+  margin: 10%;
+
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 3.5rem;
 }
 
 .signup-container {
@@ -211,11 +301,37 @@ input {
 }
 
 .label-regis-username {
-  margin-left: 5%;
+  margin-left: 10%;
+  margin: 10%;
+
+  line-height: 2rem;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+}
+.regis-username {
+  border: 0px solid #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: rgba(46, 46, 46, 0.945);
+  border: 0px solid #fff;
 }
 
 .label-regis-pass {
-  margin-left: 5%;
+  margin-left: 10%;
+  margin: 10%;
+
+  line-height: 2rem;
+  color: #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+}
+.regis-password {
+  border: 0px solid #fff;
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: rgba(46, 46, 46, 0.945);
+  border: 0px solid #fff;
 }
 
 .signup-btn {
@@ -223,6 +339,13 @@ input {
   margin-top: 6%;
   width: 20%;
   height: 4vh;
+
+  font-family: "Staatliches", cursive;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #f3d5b5;
+  border: 2px solid;
+  margin-left: 12rem;
 }
 
 /*------------POTLUCK ITEM -------------*/
