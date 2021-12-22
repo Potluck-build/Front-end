@@ -5,7 +5,7 @@ import food from "../assets/food1.jpeg";
 
 const Edit = (props) => {
   const { id } = useParams();
-
+  const nav = useNavigate();
   const [edit, setEdit] = useState({
     user_id: props.events.length + 1,
     event_name: "",
@@ -19,7 +19,6 @@ const Edit = (props) => {
       .then((res) => {
         setEdit(res.data);
       });
-    console.log(props.events);
   }, []);
 
   const handleChange = (e) => {
@@ -29,9 +28,20 @@ const Edit = (props) => {
     });
   };
 
+  const handleCancel = (e) => {
+    nav("/dashboard");
+  };
+
   const confirmEdit = (e) => {
     e.preventDefault();
-    axiosWithAuth().put();
+    axiosWithAuth()
+      .put(`/api/events/${id}`, edit)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -63,7 +73,10 @@ const Edit = (props) => {
             value={edit.event_location}
           />
         </label>
-        <button onClick={confirmEdit} className="edit-btn">
+        <button onClick={handleCancel} className="cancel">
+          Cancel
+        </button>
+        <button onClick={confirmEdit} className="confirm-btn">
           Submit
         </button>
       </div>

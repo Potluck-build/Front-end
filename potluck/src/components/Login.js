@@ -36,48 +36,42 @@ const Login = (props) => {
   };
 
   return (
-    <form className='login container' onSubmit={onSubmit}>
-      <div className='form-group submit'>
+    <form className="login-container" onSubmit={onSubmit}>
+      <div className="form-group-submit">
         <h1>Login</h1>
-        <div className='errors'>
+        <div className="errors">
           <div>{errors.username}</div>
           <div>{errors.password}</div>
         </div>
       </div>
 
-      <div className='form-group inputs'>
+      <div className="form-group inputs">
         <h4>Log-in to view your Potluck dashboard</h4>
-        <div>
-          <label>
-            Username&nbsp;
-            <div>
-              <input
-                value={login.username}
-                onChange={onChange}
-                name='username'
-                type='text'
-              />
-            </div>
+        <div className="login-form">
+          <label className="label-username">
+            Username
+            <input
+              className="input-login"
+              value={login.username}
+              onChange={onChange}
+              name="username"
+              type="text"
+            />
           </label>
-        </div>
-
-        <div>
-          <label>
+          <label className="label-password">
             Password
-            <div>
-              <input
-                value={login.password}
-                onChange={onChange}
-                name='password'
-                type={"password"}
-              />
-            </div>
+            <input
+              className="input-password"
+              value={login.password}
+              onChange={onChange}
+              name="password"
+              type={"password"}
+            />
           </label>
         </div>
-        <div></div>
       </div>
 
-      <button>submit</button>
+      <button className="login-btn">submit</button>
     </form>
   );
 };

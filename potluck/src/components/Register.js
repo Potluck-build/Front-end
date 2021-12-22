@@ -34,7 +34,7 @@ const Register = (props) => {
 
   return (
     <div>
-      <form className="register container" onSubmit={onSubmit}>
+      <form className="register-container" onSubmit={onSubmit}>
         <div className="form-group submit">
           <div className="errors">
             <div>{errors.username}</div>
@@ -45,36 +45,34 @@ const Register = (props) => {
         </div>
 
         <div className="form-group inputs">
-          <h4>Sign-up for the Potluck!</h4>
-          <div>
-            <label>
+          <h4 className="regis-main">Sign-up for the Potluck!</h4>
+          <div className="signup-container">
+            <label className="label-regis-username">
               Username&nbsp;
-              <div>
-                <input
-                  value={regis.username}
-                  onChange={handleChange}
-                  name="username"
-                  type="text"
-                />
-              </div>
+              <input
+                className="regis-username"
+                value={regis.username}
+                onChange={handleChange}
+                name="username"
+                type="text"
+              />
             </label>
           </div>
         </div>
 
         <div>
-          <label>
+          <label className="label-regis-pass">
             Password
-            <div>
-              <input
-                value={regis.password}
-                onChange={handleChange}
-                name="password"
-                type={"password"}
-              />
-            </div>
+            <input
+              className="regis-password"
+              value={regis.password}
+              onChange={handleChange}
+              name="password"
+              type={"password"}
+            />
           </label>
         </div>
-        <button>submit</button>
+        <button className="signup-btn">submit</button>
       </form>
     </div>
   );

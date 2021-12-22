@@ -26,7 +26,7 @@ const Events = (props) => {
     <div className="potluck">
       <div className="info">
         <img className="food1" src={food} alt="food" />
-        <h1>Event Name:</h1>
+        <h1 className="event-name">Event Name</h1>
         <br /> <h2>{event.event_name}</h2>
         <p>{event.event_location}</p>
         <p>{event.event_date}</p>

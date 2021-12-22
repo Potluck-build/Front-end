@@ -13,31 +13,31 @@ const Header = (props) => {
   };
 
   return (
-    <HeadContainer className='header'>
-      <h1>Potluck Planner</h1>
-      <LinkContainer className='links'>
+    <HeadContainer className="header">
+      <h1 className="title">Potluck Planner</h1>
+      <LinkContainer className="links">
         {!loggedIn && (
-          <Link className='login-link' to='/'>
+          <Link className="login-link" to="/">
             Login
           </Link>
         )}
         {!loggedIn && (
-          <Link className='register-link' to='/register'>
+          <Link className="register-link" to="/register">
             Register
           </Link>
         )}
         {loggedIn && (
-          <Link className='dashboard-link' to='/dashboard'>
+          <Link className="dashboard-link" to="/dashboard">
             Dashboard
           </Link>
         )}
         {loggedIn && (
-          <Link className='invite-link' to='/invite'>
+          <Link className="invite-link" to="/invite">
             Invite
           </Link>
         )}
         {loggedIn && (
-          <Link onClick={handleLogout} className='logout-link' to='/'>
+          <Link onClick={handleLogout} className="logout-link" to="/">
             Logout
           </Link>
         )}
