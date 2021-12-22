@@ -1,11 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { useParams } from "react-router-dom";
+import food from "../assets/food1.jpeg";
 
-const AddFood = () => {
+const AddFood = (props) => {
+  const { events } = props;
+
+  const { id } = useParams();
+
+  const [items, setItems] = useState([]);
+  const [added, setAdded] = useState([]);
+  const [newItem, setNewItem] = useState({
+    food_name: "",
+  });
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/api/events/${id}/food`)
+      .then((res) => {
+        setItems(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const handleChange = (e) => {
+    setNewItem({
+      ...newItem,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post(`/api/events/${id}/food`, newItem)
+      .then((res) => {
+        setAdded(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
-  <div>
-    <h1>AddFood</h1>
+    <div>
+      <div className="potluck-item">
+        <img className="food1" src={food} />
+        <input
+          onChange={handleChange}
+          value={newItem.food_name}
+          name="food_name"
+          className="input-item"
+          placeholder="Add Item"
+        />
+        <button onClick={handleAdd} className="add-item">
+          Add Item
+        </button>
+        {items.map((item) => {
+          return (
+            <div key={item.food_id} className="items">
+              {" "}
+              <li>{item.food_name}</li>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  )
+  );
 };
 
 export default AddFood;

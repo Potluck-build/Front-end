@@ -224,3 +224,34 @@ input {
   width: 20%;
   height: 4vh;
 }
+
+/*------------POTLUCK ITEM -------------*/
+
+.potluck-item {
+  width: 30%;
+  height: 70vh;
+  border: 1px solid black;
+  border-radius: 7%;
+  margin-top: 3%;
+  margin-left: 30%;
+  background-color: #f3d5b5;
+}
+
+.input-item {
+  margin-top: 4%;
+  margin-right: 5%;
+  width: 65%;
+}
+
+.add-item {
+  position: relative;
+  bottom: 6.3%;
+  margin-left: 78%;
+  width: 14%;
+  height: 4.3vh;
+}
+
+.items {
+  margin-left: 10%;
+  margin-top: 5%;
+}

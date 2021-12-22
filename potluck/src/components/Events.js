@@ -22,8 +22,12 @@ const Events = (props) => {
     nav(`/edit/${event.event_id}`);
   };
 
+  const handleItem = () => {
+    nav(`/add-food/${event.event_id}`);
+  };
+
   return (
-    <div className="potluck">
+    <div onClick={handleItem} className="potluck">
       <div className="info">
         <img className="food1" src={food} alt="food" />
         <h1 className="event-name">Event Name</h1>

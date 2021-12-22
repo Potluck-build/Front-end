@@ -23,115 +23,22 @@ const initialFormErrors = {
   password: "",
 };
 
-const initialDisabled = false;
-
 const App = () => {
-  const [formValues] = useState(initialFormValues);
-  const [formErrors] = useState(initialFormErrors);
-  const [disabled] = useState(initialDisabled);
-
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
   const [events, setEvents] = useState([]);
   const [newEvents, setNewEvents] = useState([]);
-
-  //////////////// HELPERS ////////////////
-  //////////////// HELPERS ////////////////
-  //////////////// HELPERS ////////////////
-  // const getUsers = () => {
-  //   axios
-  //     .get("https://reqres.in/api/users")
-  //     .then((resp) => {
-  //       setUsers(resp.data.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // };
-
-  // const postNewUser = (newUser) => {
-  //   axios
-  //     .post("https://reqres.in/api/users", newUser)
-  //     .then((resp) => {
-  //       console.log(resp);
-  //       setUsers([resp.data, ...users]);
-  //     })
-  //     .catch((err) => console.error(err))
-  //     .finally(() => setFormValues(initialFormValues));
-  // };
-
-  // const validate = (name, value) => {
-  //   yup
-  //     .reach(schema, name)
-  //     .validate(value)
-  //     .then(() => setFormErrors({ ...formErrors, [name]: "" }))
-  //     .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
-  // };
-
-  // //////////////// EVENT HANDLERS ////////////////
-  // //////////////// EVENT HANDLERS ////////////////
-  // //////////////// EVENT HANDLERS ////////////////
-  // const inputChange = (name, value) => {
-  //   validate(name, value);
-  //   setFormValues({
-  //     ...formValues,
-  //     [name]: value,
-  //   });
-  // };
-
-  // const formSubmit = () => {
-  //   const newUser = {
-  //     name: formValues.name.trim(),
-  //     password: formValues.password.trim(),
-  //   };
-
-  //   postNewUser(newUser);
-  // };
-
-  // //////////////// SIDE EFFECTS ////////////////
-  // //////////////// SIDE EFFECTS ////////////////
-  // //////////////// SIDE EFFECTS ////////////////
-  // useEffect(() => {
-  //   getUsers();
-  // }, []);
-
-  // useEffect(() => {
-  //   schema.isValid(formValues).then((valid) => setDisabled(!valid));
-  // }, [formValues]);
 
   return (
     <AppContainer>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Login
-                values={formValues}
-                errors={formErrors}
-                setLoggedIn={setLoggedIn}
-              />
-            }
-          />
+          <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
           <Route
             path="/login"
-            element={
-              <Login
-                values={formValues}
-                errors={formErrors}
-                loggedIn={loggedIn}
-                setLoggedIn={setLoggedIn}
-              />
-            }
+            element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           />
-          <Route
-            path="/register"
-            element={
-              <Register
-                values={formValues}
-                disabled={disabled}
-                errors={formErrors}
-              />
-            }
-          />
+          <Route path="/register" element={<Register />} />
 
           <Route
             path="/dashboard"
@@ -155,10 +62,9 @@ const App = () => {
               />
             }
           />
-          <Route path="/add-food" element={<AddFood />} />
 
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/add-food" element={<AddFood />} />
+          <Route path="/add-food/:id" element={<AddFood events={events} />} />
         </Routes>
       </RouteContainer>
     </AppContainer>
