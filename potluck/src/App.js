@@ -39,6 +39,7 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
   const [events, setEvents] = useState([]);
+  const [newEvents, setNewEvents] = useState([]);
 
   //////////////// HELPERS ////////////////
   //////////////// HELPERS ////////////////
@@ -146,11 +147,25 @@ const App = () => {
           />
           <Route
             path="/dashboard"
-            element={<Dashboard events={events} setEvents={setEvents} />}
+            element={
+              <Dashboard
+                newEvents={newEvents}
+                setNewEvents={setNewEvents}
+                events={events}
+                setEvents={setEvents}
+              />
+            }
           />
           <Route
             path="/edit/:id"
-            element={<Edit events={events} setEvents={setEvents} />}
+            element={
+              <Edit
+                newEvents={newEvents}
+                setNewEvents={setNewEvents}
+                events={events}
+                setEvents={setEvents}
+              />
+            }
           />
           <Route path="/add-food" element={<AddFood />} />
         </Routes>

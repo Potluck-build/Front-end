@@ -4,8 +4,6 @@ import food from "../assets/food1.jpeg";
 import Events from "./Events";
 
 const Dashboard = (props) => {
-  const [newEvents, setNewEvents] = useState([]);
-
   const [addEvent, setAddEvent] = useState({
     user_id: props.events.length + 1,
     event_name: "",
@@ -35,7 +33,7 @@ const Dashboard = (props) => {
     axiosWithAuth()
       .post("/api/events/", addEvent)
       .then((res) => {
-        setNewEvents(res.data);
+        props.setNewEvents(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -87,7 +85,13 @@ const Dashboard = (props) => {
         </button>
       </div>
       {props.events.map((event) => (
-        <Events key={event.event_id} event={event} events={props.events} />
+        <Events
+          newEvents={props.newEvents}
+          setNewEvents={props.setNewEvents}
+          key={event.event_id}
+          event={event}
+          events={props.events}
+        />
       ))}
     </div>
   );

@@ -2,8 +2,11 @@ import React from "react";
 import food from "../assets/food1.jpeg";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
+import Edit from "./Edit";
 
 const Events = (props) => {
+  const nav = useNavigate();
+
   const { event } = props;
 
   const handleDelete = () => {
@@ -15,6 +18,10 @@ const Events = (props) => {
       });
   };
 
+  const handleEdit = () => {
+    nav(`/edit/${event.event_id}`);
+  };
+
   return (
     <div className="potluck">
       <div className="info">
@@ -23,7 +30,9 @@ const Events = (props) => {
         <br /> <h2>{event.event_name}</h2>
         <p>{event.event_location}</p>
         <p>{event.event_date}</p>
-        <button className="edit">Edit</button>
+        <button onClick={handleEdit} className="edit">
+          Edit
+        </button>
         <button className="delete" onClick={handleDelete}>
           Delete
         </button>
