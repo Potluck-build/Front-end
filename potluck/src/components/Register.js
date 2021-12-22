@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const Register = (props) => {
-  const { values, submit, change, disabled, errors } = props;
+  const { errors } = props;
 
   const [regis, setRegis] = useState({
     username: "",
@@ -26,13 +26,8 @@ const Register = (props) => {
       });
   };
 
-  const onRegisterChange = (evt) => {
-    const { name, value, checked, type } = evt.target;
-    const valueToUse = type === "checkbox" ? checked : value;
-    change(name, valueToUse);
-  };
-
   return (
+
     <div>
       <form className="register-container" onSubmit={onSubmit}>
         <div className="form-group submit">
@@ -42,6 +37,13 @@ const Register = (props) => {
             <div>{errors.password}</div>
             <div>{errors.confirmPassword}</div>
           </div>
+
+    <form className='register-container' onSubmit={onSubmit}>
+      <div className='form-group submit'>
+        <div className='errors'>
+          <div>{errors.username}</div>
+          <div>{errors.password}</div>
+          <div>{errors.confirmPassword}</div>
         </div>
 
         <div className="form-group inputs">
@@ -53,6 +55,7 @@ const Register = (props) => {
                 className="regis-username"
                 value={regis.username}
                 onChange={handleChange}
+
                 name="username"
                 type="text"
               />
@@ -60,6 +63,13 @@ const Register = (props) => {
           </div>
         </div>
 
+
+                name='username'
+                type='text'
+              />
+            </div>
+          </label>
+        </div>
         <div>
           <label className="label-regis-pass">
             Password
@@ -72,9 +82,13 @@ const Register = (props) => {
             />
           </label>
         </div>
+
         <button className="signup-btn">submit</button>
       </form>
     </div>
+      </div>
+      <button>submit</button>
+    </form>
   );
 };
 
