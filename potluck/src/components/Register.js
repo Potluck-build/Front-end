@@ -40,10 +40,11 @@ const Register = (props) => {
       <div className='form-group inputs'>
         <h4>Sign-up for the Potluck!</h4>
         <div>
-          <label>
+          <label className='username'>
             Username&nbsp;
             <div>
               <input
+                className='username-input'
                 value={regis.username}
                 onChange={handleChange}
                 name='username'
@@ -53,10 +54,11 @@ const Register = (props) => {
           </label>
         </div>
         <div>
-          <label>
+          <label className='password'>
             Password
             <div>
               <input
+                className='password-input'
                 value={regis.password}
                 onChange={handleChange}
                 name='password'
@@ -66,7 +68,7 @@ const Register = (props) => {
           </label>
         </div>
       </div>
-      <button>submit</button>
+      <button className='submitBtn'>submit</button>
     </form>
   );
 };

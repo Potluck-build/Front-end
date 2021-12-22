@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
+
+
 const Login = (props) => {
   const { errors } = props;
 
@@ -45,10 +47,11 @@ const Login = (props) => {
       <div className='form-group inputs'>
         <h4>Log-in to view your Potluck dashboard</h4>
         <div>
-          <label>
+          <label className='username'>
             Username&nbsp;
             <div>
               <input
+                className='username-input'
                 value={login.username}
                 onChange={onChange}
                 name='username'
@@ -59,10 +62,11 @@ const Login = (props) => {
         </div>
 
         <div>
-          <label>
+          <label className='password'>
             Password
             <div>
               <input
+                className='password-input'
                 value={login.password}
                 onChange={onChange}
                 name='password'
@@ -74,7 +78,7 @@ const Login = (props) => {
         <div></div>
       </div>
 
-      <button>submit</button>
+      <button className='submitBtn'>submit</button>
     </form>
   );
 };

@@ -13,8 +13,9 @@ import React, { useState } from "react";
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
 //////////////// INITIAL STATES ////////////////
+
+
 const initialFormValues = {
-  ///// TEXT INPUTS /////
   username: "",
   password: "",
 };
@@ -32,8 +33,15 @@ const App = () => {
 
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
 
+  
+
 
   return (
+    <>
+      
+        
+      
+   
     <AppContainer>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
@@ -73,7 +81,8 @@ const App = () => {
           <Route path='/add-food' element={<AddFood />} />
         </Routes>
       </RouteContainer>
-    </AppContainer>
+    </AppContainer> 
+  </>
   );
 };
 
@@ -81,7 +90,16 @@ export default App;
 
 const AppContainer = styled.div`
   height: 100%;
+  
+  
+  font-family: sans-serif;
+  ////////////////////////////////
+
+
+
 `;
 const RouteContainer = styled.div`
   height: 100%;
 `;
+
+

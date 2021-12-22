@@ -56,16 +56,21 @@
 
 .label input {
   margin-top: 15%;
+
+      
 }
 
 input {
   width: 80%;
   height: 4vh;
   margin-left: 10%;
+  
+
 }
 
 .name {
   margin-bottom: 5%;
+
 }
 
 .date {
@@ -112,4 +117,59 @@ input {
   width: 20%;
   height: 4.2vh;
   background-color: #fff;
+}
+
+
+
+
+.username {
+  margin-left: 10%;
+}
+.password {
+  margin-left: 10%;
+}
+.submitBtn {
+  margin-top: 2%;
+  margin-left: 10%;
+  font-family:sans-serif;
+  padding: .5rem;
+  background-color: #FFF;
+
+	box-sizing: border-box;
+	border: 1px solid rgba(0,0,0,.1);
+	/* box-shadow: 0 30px 20px rgba(0,0,0,.2); */
+	box-shadow: 0 3px 7px rgba(57,73,76,0.35);
+
+}
+.login-container h1 , h4 {
+ margin-left: 10%;
+}
+.username-input {
+  margin-bottom: 1rem;
+  margin-left: 10%;
+	top:  50%;
+	left: 50%;
+	
+	background-color: #FFF;
+
+	box-sizing: border-box;
+	border: 1px solid rgba(0,0,0,.1);
+	/* box-shadow: 0 30px 20px rgba(0,0,0,.2); */
+	box-shadow: 0 3px 7px rgba(57,73,76,0.35);
+}
+.password-input {
+  margin-bottom: 1rem;
+  margin-left: 10%;
+	top:  50%;
+	left: 50%;
+	
+	background-color: #FFF;
+
+	box-sizing: border-box;
+	border: 1px solid rgba(0,0,0,.1);
+	/* box-shadow: 0 30px 20px rgba(0,0,0,.2); */
+	box-shadow: 0 3px 7px rgba(57,73,76,0.35);
+}
+body {
+  font-family: cursive;
 }
