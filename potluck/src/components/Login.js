@@ -35,7 +35,7 @@ const Login = (props) => {
   return (
     <form className="login-container" onSubmit={onSubmit}>
       <div className="form-group-submit">
-        <h1>Login</h1>
+        <h1 className='login-main'>Login</h1>
         <div className="errors">
           <div>{errors.username}</div>
           <div>{errors.password}</div>
@@ -43,7 +43,7 @@ const Login = (props) => {
       </div>
 
       <div className="form-group inputs">
-        <h4>Log-in to view your Potluck dashboard</h4>
+        <h4 className='login-instructions'>Log-in to view your Potluck dashboard</h4>
         <div className="login-form">
           <label className="label-username">
             Username
