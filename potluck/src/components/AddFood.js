@@ -23,7 +23,7 @@ const AddFood = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [items]);
 
   const handleChange = (e) => {
     setNewItem({
@@ -42,6 +42,9 @@ const AddFood = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    setNewItem({
+      food_name: "",
+    });
   };
 
   return (
