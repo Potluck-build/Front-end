@@ -31,7 +31,7 @@ const Events = (props) => {
         <p className="event-location">{event.event_location}</p>
         <p className="event-time">{event.event_date}</p>
         <button onClick={handleAdd} className="edit">
-          Edit
+          Food
         </button>
         <button className="delete" onClick={handleDelete}>
           Delete

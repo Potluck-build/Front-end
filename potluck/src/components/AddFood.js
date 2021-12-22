@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import food from "../assets/food1.jpeg";
 
 const AddFood = (props) => {
   const { events } = props;
 
   const { id } = useParams();
+
+  const nav = useNavigate();
 
   const [items, setItems] = useState([]);
   const [added, setAdded] = useState([]);
@@ -47,6 +50,10 @@ const AddFood = (props) => {
     });
   };
 
+  const confirmAdd = () => {
+    nav("/dashboard");
+  };
+
   return (
     <div>
       <div className="potluck-item">
@@ -69,6 +76,9 @@ const AddFood = (props) => {
             </div>
           );
         })}
+        <button onClick={confirmAdd} className="confirm-add">
+          Submit
+        </button>
       </div>
     </div>
   );
