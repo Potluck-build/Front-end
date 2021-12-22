@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const { values, submit, change, errors } = props;
+  const { errors } = props;
 
   const [login, setLogin] = useState({
     username: "",
@@ -26,9 +26,6 @@ const Login = (props) => {
       });
   };
   const onChange = (e) => {
-    // const { name, value, checked, type } = evt.target;
-    // const valueToUse = type === "checkbox" ? checked : value;
-    // change(name, valueToUse);
     setLogin({
       ...login,
       [e.target.name]: e.target.value,
@@ -36,8 +33,13 @@ const Login = (props) => {
   };
 
   return (
+
     <form className="login-container" onSubmit={onSubmit}>
       <div className="form-group-submit">
+
+    <form className='login-container' onSubmit={onSubmit}>
+      <div className='form-group submit'>
+
         <h1>Login</h1>
         <div className="errors">
           <div>{errors.username}</div>
