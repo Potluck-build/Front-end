@@ -18,8 +18,8 @@ const Events = (props) => {
       });
   };
 
-  const handleEdit = () => {
-    nav(`/edit/${event.event_id}`);
+  const handleAdd = () => {
+    nav(`/add-food/${event.event_id}`);
   };
 
   return (
@@ -30,7 +30,7 @@ const Events = (props) => {
         <br /> <h2 className="event-name-title">{event.event_name}</h2>
         <p className="event-location">{event.event_location}</p>
         <p className="event-time">{event.event_date}</p>
-        <button onClick={handleEdit} className="edit">
+        <button onClick={handleAdd} className="edit">
           Edit
         </button>
         <button className="delete" onClick={handleDelete}>
