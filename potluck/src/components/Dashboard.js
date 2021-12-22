@@ -3,11 +3,9 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import food from "../assets/food1.jpeg";
 import Events from "./Events";
 
-const Dashboard = () => {
-  const [events, setEvents] = useState([]);
-
+const Dashboard = (props) => {
   const [addEvent, setAddEvent] = useState({
-    user_id: events.length + 1,
+    user_id: props.events.length + 1,
     event_name: "",
     event_date: "2000-01-01T00:00:00",
     event_location: "",
@@ -17,12 +15,12 @@ const Dashboard = () => {
     axiosWithAuth()
       .get("/api/events/")
       .then((res) => {
-        setEvents(res.data);
+        props.setEvents(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.events]);
 
   const handleChange = (e) => {
     setAddEvent({
@@ -31,17 +29,21 @@ const Dashboard = () => {
     });
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
+  const handleAdd = () => {
     axiosWithAuth()
       .post("/api/events/", addEvent)
       .then((res) => {
-        window.location.reload();
-        console.log(res);
+        props.setNewEvents(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+    setAddEvent({
+      user_id: props.events.length + 1,
+      event_name: "",
+      event_date: "2000-01-01T00:00:00",
+      event_location: "",
+    });
   };
 
   return (
@@ -82,8 +84,14 @@ const Dashboard = () => {
           Add
         </button>
       </div>
-      {events.map((event) => (
-        <Events key={event.event_id} event={event} />
+      {props.events.map((event) => (
+        <Events
+          newEvents={props.newEvents}
+          setNewEvents={props.setNewEvents}
+          key={event.event_id}
+          event={event}
+          events={props.events}
+        />
       ))}
     </div>
   );

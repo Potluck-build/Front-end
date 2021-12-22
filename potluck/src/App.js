@@ -37,11 +37,7 @@ const App = () => {
 
 
   return (
-    <>
-      
-        
-      
-   
+  <>
     <AppContainer>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <RouteContainer>
@@ -91,9 +87,8 @@ export default App;
 const AppContainer = styled.div`
   height: 100%;
   
-  
   font-family: sans-serif;
-  ////////////////////////////////
+ 
 
 
 

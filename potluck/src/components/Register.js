@@ -27,49 +27,58 @@ const Register = (props) => {
   };
 
   return (
+
+    
     <form className='register-container' onSubmit={onSubmit}>
       <div className='form-group submit'>
         <div className='errors'>
           <div>{errors.username}</div>
           <div>{errors.password}</div>
           <div>{errors.confirmPassword}</div>
-          
         </div>
-      </div>
 
-      <div className='form-group inputs'>
-        <h4>Sign-up for the Potluck!</h4>
-        <div>
-          <label className='username'>
-            Username&nbsp;
-            <div>
+        <div className="form-group inputs">
+          <h4 className="regis-main">Register</h4>
+          <div className="signup-container">
+            <label className="label-regis-username">
+              Username&nbsp;
               <input
-                className='username-input'
+                className="regis-username"
                 value={regis.username}
                 onChange={handleChange}
-                name='username'
-                type='text'
+
+                name="username"
+                type="text"
               />
-            </div>
-          </label>
+            </label>
+          </div>
         </div>
+        
         <div>
-          <label className='password'>
+          <label className="label-regis-pass">
             Password
-            <div>
-              <input
-                className='password-input'
-                value={regis.password}
-                onChange={handleChange}
-                name='password'
-                type={"password"}
-              />
-            </div>
+            <input
+              className="regis-password"
+              value={regis.password}
+              onChange={handleChange}
+              name="password"
+              type={"password"}
+            />
           </label>
         </div>
+       
+    
+        <button className="signup-btn">submit</button>
+      
+    
+      
+        <button className='submitBtn'>submit</button>
       </div>
-      <button className='submitBtn'>submit</button>
-    </form>
+      </form>
+    
+    
+   
+    
   );
 };
 
