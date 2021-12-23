@@ -3,6 +3,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import food from "../assets/food1.jpeg";
+import axios from "axios";
 
 const AddFood = (props) => {
   const { events } = props;
@@ -17,6 +18,12 @@ const AddFood = (props) => {
     food_name: "",
   });
 
+  const [guest, setGuest] = useState({
+    user_id: "",
+  });
+
+  const [guestList, setGuestList] = useState([]);
+
   useEffect(() => {
     axiosWithAuth()
       .get(`/api/events/${id}/food`)
@@ -28,11 +35,41 @@ const AddFood = (props) => {
       });
   }, [items]);
 
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/api/events/${id}/guest`)
+      .then((res) => {
+        setGuestList(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [guestList]);
+
   const handleChange = (e) => {
     setNewItem({
       ...newItem,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleGuestChange = (e) => {
+    setGuest({
+      ...guest,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAddGuest = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post(`/api/events/${id}/guest`, guest)
+      .then((res) => {
+        setGuest(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleAdd = (e) => {
@@ -57,8 +94,24 @@ const AddFood = (props) => {
   return (
     <>
       <div className="invite-con">
-        <span className="plus">&#43;</span>
-        <button className="invite-guest">Invite Guest</button>
+        <h1 className="guest-h1">Guest List</h1>
+        <button onClick={handleAddGuest} className="invite-btn">
+          Add
+        </button>
+        <input
+          name="user_id"
+          value={guest.user_name}
+          onChange={handleGuestChange}
+          className="invite-input"
+          type="text"
+        />
+        <div className="list-names-con">
+          {guestList.map((user) => (
+            <li className="list-names" key={user.user_id}>
+              {user.username}
+            </li>
+          ))}
+        </div>
       </div>
       <div className="potluck-item">
         <img className="food1" src={food} />

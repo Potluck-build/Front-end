@@ -148,8 +148,11 @@ input {
   left: 3%;
 }
 
-.plus {
-  margin-left: 3%;
+.invite-con {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 8vh;
 }
 
 .invite-guest {
@@ -158,6 +161,52 @@ input {
   position: relative;
   background-color: #fff;
   border: 0px solid black;
+}
+
+.invite-input {
+  height: 3vh;
+  width: 10%;
+  position: relative;
+  right: 9.9%;
+  bottom: 20%;
+  color: #a47148;
+  border: 1px solid black;
+}
+
+.invite-btn {
+  width: 3%;
+  height: 2vh;
+  position: relative;
+  top: 3.5%;
+  left: 10.8%;
+  border: 1px solid #a47148;
+  color: #a47148;
+  background-color: #fff;
+}
+
+.guest-h1 {
+  margin-left: 1%;
+  margin-top: 5%;
+  font-family: "Staatliches", cursive;
+  text-decoration: underline;
+  color: #a47148;
+}
+
+.list-names-con {
+  color: #a47148;
+  border: 1px solid;
+  width: 8%;
+  height: 20vh;
+  padding: 2%;
+  padding-left: 2%;
+  text-decoration: underline;
+  background-color: #f3d5b9;
+  color: #fff;
+  border: 1px solid black;
+}
+
+.list-names {
+  margin: 9%;
 }
 
 .event-name {
@@ -194,7 +243,6 @@ input {
   height: 70vh;
   border: 1px solid black;
   border-radius: 7%;
-  margin-top: 3%;
   margin-left: 30%;
   background-color: #f3d5b5;
 }

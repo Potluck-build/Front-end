@@ -32,11 +32,6 @@ const Header = (props) => {
           </Link>
         )}
         {loggedIn && (
-          <Link className="invite-link" to="/invite">
-            Invite
-          </Link>
-        )}
-        {loggedIn && (
           <Link onClick={handleLogout} className="logout-link" to="/">
             Logout
           </Link>
