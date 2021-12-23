@@ -19,6 +19,10 @@ const Login = (props) => {
         console.log(err);
       });
     props.setLoggedIn(localStorage.getItem("token"));
+    setLogin({
+      username: "",
+      password: "",
+    });
   };
   const onChange = (e) => {
     setLogin({
