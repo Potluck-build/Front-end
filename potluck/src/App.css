@@ -69,7 +69,6 @@
 .potluck {
   width: 30%;
   height: 70vh;
-
   border-radius: 7%;
   margin-top: 3%;
   margin-left: 1%;
@@ -153,6 +152,7 @@ input {
   flex-direction: column;
   width: 90%;
   height: 8vh;
+  position: relative;
 }
 
 .invite-guest {
@@ -186,7 +186,7 @@ input {
 
 .guest-h1 {
   margin-left: 1%;
-  margin-top: 5%;
+  margin-top: 3%;
   font-family: "Staatliches", cursive;
   text-decoration: underline;
   color: #a47148;
@@ -421,7 +421,6 @@ input {
   height: 70vh;
   border: 0px solid black;
   border-radius: 7%;
-  margin-top: 3%;
   margin-left: 30%;
   background-color: #f3d5b5;
 }

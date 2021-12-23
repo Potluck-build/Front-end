@@ -1,37 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = (props) => {
-  const { loggedIn, setLoggedIn } = props;
+  const { loggedIn, setLoggedIn, login, setLogin } = props;
   const nav = useNavigate();
 
   const handleLogout = () => {
-    setLoggedIn(localStorage.getItem("token"));
+    setLoggedIn(localStorage.removeItem("token"));
     localStorage.removeItem("token");
     nav("/");
+  };
+
+  const handleLogin = () => {
+    setLoggedIn(localStorage.getItem("token"));
   };
 
   return (
     <HeadContainer className="header">
       <h1 className="title">Potluck Planner</h1>
       <LinkContainer className="links">
-        {!loggedIn && (
-          <Link className="login-link" to="/">
+        {!localStorage.getItem("token") && (
+          <Link onClick={handleLogin} className="login-link" to="/">
             Login
           </Link>
         )}
-        {!loggedIn && (
+        {!localStorage.getItem("token") && (
           <Link className="register-link" to="/register">
             Register
           </Link>
         )}
-        {loggedIn && (
+        {localStorage.getItem("token") && (
           <Link className="dashboard-link" to="/dashboard">
             Dashboard
           </Link>
         )}
-        {loggedIn && (
+        {localStorage.getItem("token") && (
           <Link onClick={handleLogout} className="logout-link" to="/">
             Logout
           </Link>
