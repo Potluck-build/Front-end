@@ -12,7 +12,6 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/api/users/login", login)
       .then((res) => {
-        setLogin(login);
         localStorage.setItem("token", res.data.token);
         nav("/dashboard");
       })
