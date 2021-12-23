@@ -33,6 +33,7 @@ const Events = (props) => {
         <button onClick={handleAdd} className="edit">
           Food
         </button>
+        <button className="guest">Guest</button>
         <button className="delete" onClick={handleDelete}>
           Delete
         </button>

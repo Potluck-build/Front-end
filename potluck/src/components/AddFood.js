@@ -55,7 +55,11 @@ const AddFood = (props) => {
   };
 
   return (
-    <div>
+    <>
+      <div className="invite-con">
+        <span className="plus">&#43;</span>
+        <button className="invite-guest">Invite Guest</button>
+      </div>
       <div className="potluck-item">
         <img className="food1" src={food} />
         <input
@@ -68,19 +72,21 @@ const AddFood = (props) => {
         <button onClick={handleAdd} className="add-item">
           Add Item
         </button>
-        {items.map((item) => {
-          return (
-            <div key={item.food_id} className="items">
-              {" "}
-              <li>{item.food_name}</li>
-            </div>
-          );
-        })}
+        <div className="items">
+          {items.map((item) => {
+            return (
+              <div key={item.food_id} className="items-list">
+                {" "}
+                <li>{item.food_name}</li>
+              </div>
+            );
+          })}
+        </div>
         <button onClick={confirmAdd} className="confirm-add">
           Submit
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
