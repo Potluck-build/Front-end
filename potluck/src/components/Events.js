@@ -2,7 +2,6 @@ import React from "react";
 import food from "../assets/food1.jpeg";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
-import Edit from "./Edit";
 
 const Events = (props) => {
   const nav = useNavigate();
@@ -33,7 +32,6 @@ const Events = (props) => {
         <button onClick={handleAdd} className="edit">
           Food
         </button>
-        <button className="guest">Guest</button>
         <button className="delete" onClick={handleDelete}>
           Delete
         </button>

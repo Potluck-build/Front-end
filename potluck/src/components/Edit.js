@@ -42,7 +42,7 @@ const Edit = (props) => {
     <div className="potluck-edit">
       <div className="info-edit">
         <label className="label">
-          <img className="food1" src={food} />
+          <img className="food1" src={food} alt="food" />
           <input
             onChange={handleChange}
             className="name"

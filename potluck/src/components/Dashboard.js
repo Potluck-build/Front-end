@@ -4,7 +4,7 @@ import food from "../assets/food1.jpeg";
 import Events from "./Events";
 
 const Dashboard = (props) => {
-  const { login, events } = props;
+  const { login } = props;
 
   const [addEvent, setAddEvent] = useState({
     user_id: props.events.length + 1,
@@ -13,7 +13,7 @@ const Dashboard = (props) => {
     event_location: "",
   });
 
-  const [users, setUsers] = useState([]);
+  const [setUsers] = useState([]);
 
   useEffect(() => {
     axiosWithAuth()
@@ -64,11 +64,6 @@ const Dashboard = (props) => {
 
   return (
     <>
-      {users.map((user) => {
-        if (user.username === login) {
-          return <h1>{user.username}</h1>;
-        }
-      })}
       <div className="potlucks-con">
         <div className="potluck">
           <img className="food1" src={food} alt="food" />

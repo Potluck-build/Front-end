@@ -3,17 +3,14 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import food from "../assets/food1.jpeg";
-import axios from "axios";
 
 const AddFood = (props) => {
-  const { events } = props;
-
   const { id } = useParams();
 
   const nav = useNavigate();
 
   const [items, setItems] = useState([]);
-  const [added, setAdded] = useState([]);
+  const [setAdded] = useState([]);
   const [newItem, setNewItem] = useState({
     food_name: "",
   });
@@ -114,7 +111,7 @@ const AddFood = (props) => {
         </div>
       </div>
       <div className="potluck-item">
-        <img className="food1" src={food} />
+        <img className="food1" src={food} alt="food" />
         <input
           onChange={handleChange}
           value={newItem.food_name}

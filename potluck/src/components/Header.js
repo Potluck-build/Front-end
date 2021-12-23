@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = (props) => {
-  const { loggedIn, setLoggedIn, login, setLogin } = props;
+  const { setLoggedIn } = props;
   const nav = useNavigate();
 
   const handleLogout = () => {
@@ -12,16 +12,12 @@ const Header = (props) => {
     nav("/");
   };
 
-  const handleLogin = () => {
-    setLoggedIn(localStorage.getItem("token"));
-  };
-
   return (
     <HeadContainer className="header">
       <h1 className="title">Potluck Planner</h1>
       <LinkContainer className="links">
         {!localStorage.getItem("token") && (
-          <Link onClick={handleLogin} className="login-link" to="/">
+          <Link className="login-link" to="/">
             Login
           </Link>
         )}
