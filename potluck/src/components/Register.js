@@ -14,7 +14,6 @@ const Register = (props) => {
       ...regis,
       [e.target.name]: e.target.value,
     });
-    console.log(regis);
   };
 
   const onSubmit = (evt) => {

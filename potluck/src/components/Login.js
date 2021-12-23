@@ -3,12 +3,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const { errors } = props;
-
-  const [login, setLogin] = useState({
-    username: "",
-    password: "",
-  });
+  const { errors, login, setLogin } = props;
 
   const nav = useNavigate();
 
@@ -17,13 +12,14 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/api/users/login", login)
       .then((res) => {
-        props.setLoggedIn(localStorage.getItem("token"));
+        setLogin(login);
         localStorage.setItem("token", res.data.token);
         nav("/dashboard");
       })
       .catch((err) => {
         console.log(err);
       });
+    props.setLoggedIn(localStorage.getItem("token"));
   };
   const onChange = (e) => {
     setLogin({
@@ -35,7 +31,7 @@ const Login = (props) => {
   return (
     <form className="login-container" onSubmit={onSubmit}>
       <div className="form-group-submit">
-        <h1 className='login-main'>Login</h1>
+        <h1 className="login-main">Login</h1>
         <div className="errors">
           <div>{errors.username}</div>
           <div>{errors.password}</div>
@@ -43,7 +39,9 @@ const Login = (props) => {
       </div>
 
       <div className="form-group inputs">
-        <h4 className='login-instructions'>Log-in to view your Potluck dashboard</h4>
+        <h4 className="login-instructions">
+          Log-in to view your Potluck dashboard
+        </h4>
         <div className="login-form">
           <label className="label-username">
             Username

@@ -31,9 +31,19 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [newEvents, setNewEvents] = useState([]);
 
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
+
   return (
     <AppContainer>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Header
+        loggedIn={loggedIn}
+        setLoggedIn={setLoggedIn}
+        login={login}
+        setLogin={setLogin}
+      />
       <RouteContainer>
         <Routes>
           <Route
@@ -43,6 +53,8 @@ const App = () => {
                 values={formValues}
                 errors={formErrors}
                 setLoggedIn={setLoggedIn}
+                login={login}
+                setLogin={setLogin}
               />
             }
           />
@@ -54,6 +66,8 @@ const App = () => {
                 errors={formErrors}
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
+                login={login}
+                setLogin={setLogin}
               />
             }
           />
@@ -71,6 +85,7 @@ const App = () => {
                 setNewEvents={setNewEvents}
                 events={events}
                 setEvents={setEvents}
+                login={login}
               />
             }
           />
@@ -86,7 +101,6 @@ const App = () => {
             }
           />
 
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-food/:id" element={<AddFood events={events} />} />
         </Routes>
       </RouteContainer>

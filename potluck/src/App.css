@@ -8,7 +8,6 @@
 }
 
 .header {
-  
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -27,7 +26,6 @@
   margin-right: 20%;
   text-decoration: none;
   color: #fff;
-  
 }
 
 .logout-link {
@@ -61,7 +59,6 @@
   width: 99.6%;
   border-top-left-radius: 9%;
   border-top-right-radius: 9%;
-  
 }
 
 .potlucks-con {
@@ -72,7 +69,6 @@
 .potluck {
   width: 30%;
   height: 70vh;
-  
   border-radius: 7%;
   margin-top: 3%;
   margin-left: 1%;
@@ -118,7 +114,7 @@ input {
   width: 20%;
   height: 4.2vh;
   margin-top: 3.5%;
-  margin-right: 30%;
+  margin-right: 8%;
 
   border: 0px solid black;
   font-family: "Staatliches", cursive;
@@ -130,12 +126,87 @@ input {
 .delete {
   width: 20%;
   height: 4.2vh;
-
+  margin-left: 5%;
   border: 0px solid black;
   font-family: "Staatliches", cursive;
   font-size: 2rem;
   background-color: #f3d5b5;
   color: #fff;
+}
+
+.guest {
+  width: 20%;
+  height: 4.2vh;
+  margin-right: 10%;
+  border: 0px solid black;
+  font-family: "Staatliches", cursive;
+  font-size: 2rem;
+  background-color: #f3d5b5;
+  color: #fff;
+  position: relative;
+  left: 3%;
+}
+
+.invite-con {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 8vh;
+  position: relative;
+}
+
+.invite-guest {
+  width: 5%;
+  height: 4.2vh;
+  position: relative;
+  background-color: #fff;
+  border: 0px solid black;
+}
+
+.invite-input {
+  height: 3vh;
+  width: 10%;
+  position: relative;
+  right: 9.9%;
+  bottom: 20%;
+  color: #a47148;
+  border: 1px solid black;
+}
+
+.invite-btn {
+  width: 3%;
+  height: 2vh;
+  position: relative;
+  top: 3.5%;
+  left: 10.8%;
+  border: 1px solid #a47148;
+  color: #a47148;
+  background-color: #fff;
+}
+
+.guest-h1 {
+  margin-left: 1%;
+  margin-top: 3%;
+  font-family: "Staatliches", cursive;
+  text-decoration: underline;
+  color: #a47148;
+}
+
+.list-names-con {
+  color: #a47148;
+  border: 1px solid;
+  width: 8%;
+  height: 20vh;
+  padding: 2%;
+  padding-left: 2%;
+  text-decoration: underline;
+  background-color: #f3d5b9;
+  color: #fff;
+  border: 1px solid black;
+}
+
+.list-names {
+  margin: 9%;
 }
 
 .event-name {
@@ -151,8 +222,8 @@ input {
   background-color: #f3d5b5;
   color: #fff;
 }
-.event-name-title{
-  margin-top: .05rem;
+.event-name-title {
+  margin-top: 0.05rem;
   font-family: "Staatliches", cursive;
   font-size: 2rem;
   background-color: #f3d5b5;
@@ -172,7 +243,6 @@ input {
   height: 70vh;
   border: 1px solid black;
   border-radius: 7%;
-  margin-top: 3%;
   margin-left: 30%;
   background-color: #f3d5b5;
 }
@@ -197,7 +267,7 @@ input {
   margin-left: 30%;
   width: 25%;
   height: 41vh;
-  
+
   border-radius: 10%;
   padding: 6%;
   background-color: #e7bc91;
@@ -208,7 +278,7 @@ input {
   color: #fff;
   font-family: "Staatliches", cursive;
   font-size: 3.5rem;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
 }
 
 .login-instructions {
@@ -224,7 +294,6 @@ input {
   color: #fff;
   font-family: "Staatliches", cursive;
   font-size: 1.5rem;
-  
 }
 
 .label-password {
@@ -233,7 +302,6 @@ input {
   color: #fff;
   font-family: "Staatliches", cursive;
   font-size: 1.5rem;
-  
 }
 
 .input-login {
@@ -247,7 +315,7 @@ input {
 
 .input-password {
   margin-left: 15%;
- 
+
   width: 70%;
   margin-bottom: 5%;
   border: 0px solid #fff;
@@ -255,8 +323,6 @@ input {
   font-size: 1.5rem;
   color: rgba(46, 46, 46, 0.945);
   border: 0px solid #fff;
-  
-  
 }
 
 .login-btn {
@@ -282,7 +348,7 @@ input {
   border-radius: 10%;
   padding: 5%;
   background-color: #e7bc91;
-  
+
   box-shadow: 7px 7px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
@@ -355,7 +421,6 @@ input {
   height: 70vh;
   border: 0px solid black;
   border-radius: 7%;
-  margin-top: 3%;
   margin-left: 30%;
   background-color: #f3d5b5;
 }
@@ -380,15 +445,36 @@ input {
   margin-top: 5%;
 
   font-size: 1.2rem;
-color: #fff;
-background-color: #f3d5b5;
-font-family: "Staatliches", cursive;
+  color: #fff;
+  background-color: #f3d5b5;
+  font-family: "Staatliches", cursive;
 }
 
+.confirm-add {
+  width: 14%;
+  height: 5%;
+  margin-top: 3%;
+  margin-left: 40%;
+  font-family: "Staatliches", cursive;
+  font-size: 1.2rem;
+  color: #f3d5b5;
+  border: 1px solid black;
+  background-color: #fff;
+  font-size: 1.5rem;
+}
 button.add-item {
-font-family: "Staatliches", cursive;
-font-size: 1.2rem;
-color: #fff;
-background-color: #f3d5b5;
-border: 2px solid;
+  font-family: "Staatliches", cursive;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #f3d5b5;
+  border: 2px solid;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: column wrap;
+  width: 90%;
+  height: 20vh;
 }
