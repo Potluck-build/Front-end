@@ -12,8 +12,12 @@ const Login = (props) => {
     axiosWithAuth()
       .post("/api/users/login", login)
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        nav("/dashboard");
+        if (login.username === "" && login.password === "") {
+          nav("/login");
+        } else {
+          localStorage.setItem("token", res.data.token);
+          nav("/dashboard");
+        }
       })
       .catch((err) => {
         console.log(err);
